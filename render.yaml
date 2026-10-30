@@ -1,0 +1,10 @@
+# One-click deploy on Render's free plan: New > Blueprint > pick this repo.
+services:
+  - type: web
+    name: job-application-agent
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false  # Render asks you for the value; it is never stored in the repo
